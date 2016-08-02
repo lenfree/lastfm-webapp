@@ -1,0 +1,13 @@
+<ol>
+  <% for artist in @results %>
+    <h3><%= artist['name'] %>
+      <a href="./search/artist?name=<%= artist['name'] %>">
+        <image src="<%= url(artist['image'][0]['#text']) %>" /><br />
+      </a>
+    </h3>
+  <% end %>
+</ol>
+
+<%-# Fix below route config-%>
+<%= will_paginate(@results, :params => { :country_name => @country_name }) %>
+
